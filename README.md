@@ -1,16 +1,45 @@
-# React + Vite
+# Food Picker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small React app that solves decision paralysis around choosing what to eat. Built as a personal gift.
 
-Currently, two official plugins are available:
+Instead of presenting an overwhelming list of options, it guides the user through a short series of choices that narrow down to a single dish — using a binary elimination mechanic borrowed from tournament brackets.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## How it works
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The app moves through four steps:
 
-## Expanding the ESLint configuration
+1. **Weight** — The user picks how heavy they want the meal: Light, Medium, or Heavy. One tap, no overthinking.
+2. **Cuisine** — A head-to-head bracket eliminates cuisines one at a time until one remains.
+3. **Dish** — The same bracket mechanic plays out at the dish level, with the dish pool filtered by the weight selection from step one.
+4. **Result** — The winning dish is revealed with a short, celebratory message.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+At every step, the user is only ever making a binary choice: *which of these two do I want less?* This reframes the decision as elimination rather than selection, which is significantly easier under decision fatigue.
+
+---
+
+## Tech
+
+- **React** — functional components, `useState` / `useRef` for state management
+- **Vite** — development server and build tooling
+- **No external UI libraries** — all components and styles written from scratch
+
+---
+
+## Running locally
+
+```bash
+npm install
+npm run dev
+```
+
+---
+
+## Design decisions
+
+**Binary elimination over a list UI.** Picking from a grid of 10 cuisines requires comparing everything at once. A head-to-head bracket only ever asks one question at a time, which is easier to answer and more fun.
+
+**Weight as the filtering axis.** An earlier version used multi-tag "vibes" (cozy, indulgent, fresh, etc.) to filter dishes. This turned out to be too much cognitive overhead for what should be a two-second decision. Collapsing it to a single light/medium/heavy axis captures most of the useful signal with almost none of the friction.
+
+**No backend.** Dish pools are hardcoded per cuisine and filtered client-side. For the scale and purpose of this app, a database would be unnecessary complexity.
