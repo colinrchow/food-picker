@@ -2,6 +2,8 @@
 
 A small React app that solves decision paralysis around choosing what to eat. Built as a personal gift.
 
+**Live app:** [colinrchow.github.io/food-picker](https://colinrchow.github.io/food-picker/)
+
 Instead of presenting an overwhelming list of options, it guides the user through a short series of choices that narrow down to a single dish — using a binary elimination mechanic borrowed from tournament brackets.
 
 ---
