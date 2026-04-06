@@ -5,14 +5,14 @@ import EliminationScreen from './screens/EliminationScreen'
 import ResultScreen from './screens/ResultScreen'
 import './App.css'
 
-const INITIAL = { vibes: [], cuisine: null, winner: null }
+const INITIAL = { weight: null, cuisine: null, winner: null }
 
 function App() {
   const [screen, setScreen] = useState('vibes')
   const [selected, setSelected] = useState(INITIAL)
 
-  function handleVibesDone(vibes) {
-    setSelected(s => ({ ...s, vibes }))
+  function handleWeightDone(weight) {
+    setSelected(s => ({ ...s, weight }))
     setScreen('cuisine')
   }
 
@@ -34,7 +34,7 @@ function App() {
   return (
     <div className="app">
       {screen === 'vibes' && (
-        <VibeScreen onDone={handleVibesDone} />
+        <VibeScreen onDone={handleWeightDone} />
       )}
       {screen === 'cuisine' && (
         <CuisineScreen
@@ -45,7 +45,7 @@ function App() {
       {screen === 'elimination' && (
         <EliminationScreen
           cuisine={selected.cuisine}
-          vibes={selected.vibes}
+          weight={selected.weight}
           onDone={handleElimDone}
           onBack={() => setScreen('cuisine')}
         />

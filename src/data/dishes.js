@@ -1,90 +1,97 @@
-// vibes: cozy, light, indulgent, comfort, adventurous, fresh, hearty, quick
+// weight: light, medium, heavy
 
 const dishes = {
   japanese: [
-    { id: 'ramen',       label: 'Ramen',       vibes: ['cozy', 'comfort', 'hearty', 'indulgent'] },
-    { id: 'sushi',       label: 'Sushi',        vibes: ['fresh', 'light', 'adventurous'] },
-    { id: 'udon',        label: 'Udon',         vibes: ['cozy', 'comfort', 'hearty'] },
-    { id: 'katsu_curry', label: 'Katsu Curry',  vibes: ['indulgent', 'comfort', 'hearty'] },
-    { id: 'katsu',       label: 'Katsu',        vibes: ['comfort', 'hearty', 'quick'] },
+    { id: 'ramen',       label: 'Ramen',           weight: ['medium', 'heavy'] },
+    { id: 'sushi',       label: 'Sushi',            weight: ['light', 'medium'] },
+    { id: 'udon',        label: 'Udon',             weight: ['medium', 'heavy'] },
+    { id: 'katsu_curry', label: 'Katsu Curry',      weight: ['heavy'] },
+    { id: 'katsu',       label: 'Katsu',            weight: ['medium', 'heavy'] },
   ],
   mexican: [
-    { id: 'tacos',      label: 'Tacos',      vibes: ['quick', 'comfort', 'adventurous'] },
-    { id: 'burrito',    label: 'Burrito',    vibes: ['hearty', 'comfort', 'indulgent'] },
-    { id: 'quesadilla', label: 'Quesadilla', vibes: ['quick', 'comfort', 'cozy'] },
+    { id: 'tacos',      label: 'Tacos',      weight: ['medium'] },
+    { id: 'burrito',    label: 'Burrito',    weight: ['medium', 'heavy'] },
+    { id: 'quesadilla', label: 'Quesadilla', weight: ['medium'] },
   ],
   italian: [
-    { id: 'pasta_carbonara', label: 'Carbonara',     vibes: ['indulgent', 'comfort', 'cozy'] },
-    { id: 'pizza',           label: 'Pizza',          vibes: ['comfort', 'indulgent', 'quick'] },
-    { id: 'risotto',         label: 'Risotto',        vibes: ['cozy', 'indulgent', 'hearty'] },
-    { id: 'pasta_pomodoro',  label: 'Pasta Pomodoro', vibes: ['comfort', 'light', 'quick'] },
-    { id: 'lasagna',         label: 'Lasagna',        vibes: ['hearty', 'indulgent', 'comfort'] },
+    { id: 'pasta_carbonara', label: 'Carbonara',     weight: ['heavy'] },
+    { id: 'pizza',           label: 'Pizza',          weight: ['medium', 'heavy'] },
+    { id: 'risotto',         label: 'Risotto',        weight: ['medium', 'heavy'] },
+    { id: 'pasta_pomodoro',  label: 'Pasta Pomodoro', weight: ['light', 'medium'] },
+    { id: 'lasagna',         label: 'Lasagna',        weight: ['heavy'] },
   ],
   thai: [
-    { id: 'pad_thai',      label: 'Pad Thai',          vibes: ['comfort', 'quick', 'fresh'] },
-    { id: 'green_curry',   label: 'Green Curry',        vibes: ['adventurous', 'cozy', 'hearty'] },
-    { id: 'basil_chicken', label: 'Basil Chicken Rice', vibes: ['quick', 'hearty', 'adventurous'] },
-    { id: 'pad_see_ew',    label: 'Pad See Ew',         vibes: ['comfort', 'hearty', 'indulgent'] },
+    { id: 'pad_thai',      label: 'Pad Thai',          weight: ['medium'] },
+    { id: 'green_curry',   label: 'Green Curry',        weight: ['medium', 'heavy'] },
+    { id: 'basil_chicken', label: 'Basil Chicken Rice', weight: ['medium'] },
+    { id: 'pad_see_ew',    label: 'Pad See Ew',         weight: ['medium', 'heavy'] },
   ],
   chinese: [
-    { id: 'fried_rice',        label: 'Fried Rice',        vibes: ['comfort', 'quick', 'hearty'] },
-    { id: 'hot_pot',           label: 'Hot Pot',           vibes: ['cozy', 'adventurous', 'indulgent', 'hearty'] },
-    { id: 'char_siu',          label: 'Char Siu Pork',     vibes: ['comfort', 'indulgent', 'hearty'] },
-    { id: 'crispy_pork_belly', label: 'Crispy Pork Belly', vibes: ['indulgent', 'hearty', 'adventurous'] },
-    { id: 'malatang',          label: 'Malatang',          vibes: ['adventurous', 'cozy', 'hearty', 'indulgent'] },
-    { id: 'dim_sum',           label: 'Dim Sum',           vibes: ['comfort', 'adventurous', 'light'] },
-    { id: 'crispy_noodles',    label: 'Crispy Noodles',    vibes: ['comfort', 'indulgent', 'quick'] },
+    { id: 'fried_rice',        label: 'Fried Rice',        weight: ['medium'] },
+    { id: 'hot_pot',           label: 'Hot Pot',            weight: ['medium', 'heavy'] },
+    { id: 'char_siu',          label: 'Char Siu Pork',     weight: ['medium', 'heavy'] },
+    { id: 'crispy_pork_belly', label: 'Crispy Pork Belly', weight: ['heavy'] },
+    { id: 'malatang',          label: 'Malatang',           weight: ['medium', 'heavy'] },
+    { id: 'dim_sum',           label: 'Dim Sum',            weight: ['light', 'medium'] },
+    { id: 'crispy_noodles',    label: 'Crispy Noodles',    weight: ['medium', 'heavy'] },
   ],
   indian: [
-    { id: 'butter_chicken', label: 'Butter Chicken', vibes: ['comfort', 'cozy', 'indulgent'] },
-    { id: 'biryani',        label: 'Biryani',         vibes: ['hearty', 'adventurous', 'indulgent'] },
-    { id: 'palak_paneer',   label: 'Palak Paneer',    vibes: ['comfort', 'cozy', 'light'] },
-    { id: 'dal',            label: 'Dal Tadka',       vibes: ['cozy', 'light', 'comfort'] },
-    { id: 'tikka_masala',   label: 'Tikka Masala',    vibes: ['comfort', 'hearty', 'indulgent'] },
-    { id: 'dosa',           label: 'Dosa',            vibes: ['light', 'adventurous', 'fresh'] },
-    { id: 'lamb_rogan',     label: 'Lamb Rogan Josh', vibes: ['hearty', 'adventurous', 'indulgent'] },
-    { id: 'khichdi',        label: 'Khichdi',         vibes: ['cozy', 'comfort', 'light'] },
+    { id: 'butter_chicken', label: 'Butter Chicken', weight: ['medium', 'heavy'] },
+    { id: 'biryani',        label: 'Biryani',         weight: ['medium', 'heavy'] },
+    { id: 'palak_paneer',   label: 'Palak Paneer',    weight: ['medium'] },
+    { id: 'dal',            label: 'Dal Tadka',       weight: ['light', 'medium'] },
+    { id: 'tikka_masala',   label: 'Tikka Masala',    weight: ['medium', 'heavy'] },
+    { id: 'dosa',           label: 'Dosa',            weight: ['light', 'medium'] },
+    { id: 'lamb_rogan',     label: 'Lamb Rogan Josh', weight: ['heavy'] },
+    { id: 'khichdi',        label: 'Khichdi',         weight: ['light', 'medium'] },
   ],
   american: [
-    { id: 'burger',              label: 'Burger',              vibes: ['hearty', 'indulgent', 'comfort'] },
-    { id: 'fried_chicken',       label: 'Fried Chicken',       vibes: ['comfort', 'indulgent', 'hearty'] },
-    { id: 'clam_chowder',        label: 'Clam Chowder',        vibes: ['cozy', 'comfort', 'hearty'] },
-    { id: 'pizza',               label: 'Pizza',               vibes: ['comfort', 'indulgent', 'quick'] },
-    { id: 'loaded_potato_skins', label: 'Loaded Potato Skins', vibes: ['indulgent', 'comfort', 'cozy'] },
+    { id: 'burger',              label: 'Burger',              weight: ['heavy'] },
+    { id: 'fried_chicken',       label: 'Fried Chicken',       weight: ['heavy'] },
+    { id: 'clam_chowder',        label: 'Clam Chowder',        weight: ['medium', 'heavy'] },
+    { id: 'pizza',               label: 'Pizza',               weight: ['medium', 'heavy'] },
+    { id: 'loaded_potato_skins', label: 'Loaded Potato Skins', weight: ['heavy'] },
   ],
   korean: [
-    { id: 'bibimbap',      label: 'Bibimbap',        vibes: ['fresh', 'hearty', 'adventurous'] },
-    { id: 'tteokbokki',    label: 'Tteokbokki',      vibes: ['cozy', 'adventurous', 'comfort'] },
-    { id: 'korean_bbq',    label: 'Korean BBQ',       vibes: ['hearty', 'adventurous', 'indulgent'] },
-    { id: 'sundubu',       label: 'Sundubu Jjigae',   vibes: ['cozy', 'comfort', 'light'] },
-    { id: 'japchae',       label: 'Japchae',          vibes: ['fresh', 'light', 'adventurous'] },
-    { id: 'kimchi_jjigae', label: 'Kimchi Jjigae',    vibes: ['cozy', 'adventurous', 'hearty'] },
-    { id: 'galbi',         label: 'Galbi',            vibes: ['hearty', 'indulgent', 'comfort'] },
-    { id: 'cold_noodles',  label: 'Naengmyeon',       vibes: ['fresh', 'light', 'adventurous'] },
-    { id: 'doenjang',      label: 'Doenjang Jjigae',  vibes: ['cozy', 'comfort', 'light'] },
+    { id: 'bibimbap',      label: 'Bibimbap',        weight: ['medium'] },
+    { id: 'tteokbokki',    label: 'Tteokbokki',      weight: ['medium'] },
+    { id: 'korean_bbq',    label: 'Korean BBQ',       weight: ['heavy'] },
+    { id: 'sundubu',       label: 'Sundubu Jjigae',   weight: ['light', 'medium'] },
+    { id: 'japchae',       label: 'Japchae',          weight: ['light', 'medium'] },
+    { id: 'kimchi_jjigae', label: 'Kimchi Jjigae',    weight: ['medium', 'heavy'] },
+    { id: 'galbi',         label: 'Galbi',            weight: ['heavy'] },
+    { id: 'cold_noodles',  label: 'Naengmyeon',       weight: ['light', 'medium'] },
+    { id: 'doenjang',      label: 'Doenjang Jjigae',  weight: ['light', 'medium'] },
   ],
   mediterranean: [
-    { id: 'falafel',      label: 'Falafel Plate',   vibes: ['fresh', 'light', 'adventurous'] },
-    { id: 'shawarma',     label: 'Shawarma',         vibes: ['hearty', 'comfort', 'adventurous'] },
-    { id: 'lamb_kebab',   label: 'Lamb Kebab Plate', vibes: ['hearty', 'adventurous', 'indulgent'] },
-    { id: 'moussaka',     label: 'Moussaka',         vibes: ['cozy', 'hearty', 'indulgent'] },
-    { id: 'spanakopita',  label: 'Spanakopita',      vibes: ['cozy', 'comfort', 'light'] },
-    { id: 'grilled_fish', label: 'Grilled Fish',     vibes: ['light', 'fresh', 'hearty'] },
-    { id: 'tagine',       label: 'Tagine',           vibes: ['cozy', 'adventurous', 'hearty', 'indulgent'] },
+    { id: 'falafel',      label: 'Falafel Plate',   weight: ['light', 'medium'] },
+    { id: 'shawarma',     label: 'Shawarma',         weight: ['medium', 'heavy'] },
+    { id: 'lamb_kebab',   label: 'Lamb Kebab Plate', weight: ['medium', 'heavy'] },
+    { id: 'moussaka',     label: 'Moussaka',         weight: ['heavy'] },
+    { id: 'spanakopita',  label: 'Spanakopita',      weight: ['light', 'medium'] },
+    { id: 'grilled_fish', label: 'Grilled Fish',     weight: ['light', 'medium'] },
+    { id: 'tagine',       label: 'Tagine',           weight: ['medium', 'heavy'] },
   ],
   vietnamese: [
-    { id: 'pho',        label: 'Pho',                  vibes: ['cozy', 'comfort', 'light'] },
-    { id: 'banh_mi',    label: 'Bánh Mì',              vibes: ['fresh', 'quick', 'adventurous'] },
+    { id: 'pho',        label: 'Pho',                  weight: ['light', 'medium'] },
+    { id: 'banh_mi',    label: 'Bánh Mì',              weight: ['medium'] },
+    { id: 'bun_bo_hue', label: 'Bún Bò Huế',           weight: ['medium', 'heavy'] },
+    { id: 'com_tam',    label: 'Cơm Tấm',              weight: ['medium'] },
+    { id: 'bun_cha',    label: 'Bún Chả',              weight: ['light', 'medium'] },
+    { id: 'cao_lau',    label: 'Cao Lầu',              weight: ['medium'] },
+    { id: 'banh_xeo',   label: 'Bánh Xèo',             weight: ['medium', 'heavy'] },
+    { id: 'chao',       label: 'Cháo (Rice Porridge)', weight: ['light'] },
+    { id: 'mi_quang',   label: 'Mì Quảng',             weight: ['medium', 'heavy'] },
   ],
 }
 
-const MIN_POOL_SIZE = 6
+const MIN_POOL_SIZE = 4
 
-export function getDishPool(cuisine, vibes) {
+export function getDishPool(cuisine, weight) {
   const all = dishes[cuisine] ?? []
-  if (!vibes || vibes.length === 0) return shuffle(all).slice(0, 8)
+  if (!weight) return shuffle(all).slice(0, 8)
 
-  const matched = all.filter(d => d.vibes.some(v => vibes.includes(v)))
+  const matched = all.filter(d => d.weight.includes(weight))
   const pool = matched.length >= MIN_POOL_SIZE ? matched : all
   return shuffle(pool).slice(0, 8)
 }

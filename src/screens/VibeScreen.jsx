@@ -1,48 +1,24 @@
-import { useState } from 'react'
-
-const VIBES = [
-  { id: 'cozy',        label: 'Cozy',        emoji: '🛋️' },
-  { id: 'light',       label: 'Light',        emoji: '🌿' },
-  { id: 'indulgent',   label: 'Indulgent',    emoji: '🧈' },
-  { id: 'comfort',     label: 'Comfort',      emoji: '🫶' },
-  { id: 'adventurous', label: 'Adventurous',  emoji: '🌶️' },
-  { id: 'fresh',       label: 'Fresh',        emoji: '🍋' },
-  { id: 'hearty',      label: 'Hearty',       emoji: '🥩' },
-  { id: 'quick',       label: 'Something quick', emoji: '⚡' },
+const OPTIONS = [
+  { id: 'light',  emoji: '🥗', label: 'Light',  desc: 'Fresh, clean, not too heavy' },
+  { id: 'medium', emoji: '🍜', label: 'Medium', desc: 'Satisfying but not a gut bomb' },
+  { id: 'heavy',  emoji: '🫕', label: 'Heavy',  desc: 'Comfort food, rich, filling' },
 ]
 
 export default function VibeScreen({ onDone }) {
-  const [picked, setPicked] = useState([])
-
-  function toggle(id) {
-    setPicked(prev =>
-      prev.includes(id) ? prev.filter(v => v !== id) : [...prev, id]
-    )
-  }
-
   return (
     <div className="screen">
-      <h1>What's the vibe?</h1>
-      <p className="subtitle">Pick everything that feels right.</p>
-      <div className="vibe-grid">
-        {VIBES.map(v => (
-          <button
-            key={v.id}
-            className={`vibe-chip ${picked.includes(v.id) ? 'selected' : ''}`}
-            onClick={() => toggle(v.id)}
-          >
-            <span className="vibe-emoji">{v.emoji}</span>
-            <span>{v.label}</span>
+      <h1>How hungry are you?</h1>
+      <div className="weight-options">
+        {OPTIONS.map(o => (
+          <button key={o.id} className="weight-card" onClick={() => onDone(o.id)}>
+            <span className="weight-emoji">{o.emoji}</span>
+            <div className="weight-text">
+              <span className="weight-label">{o.label}</span>
+              <span className="weight-desc">{o.desc}</span>
+            </div>
           </button>
         ))}
       </div>
-      <button
-        className="continue-btn"
-        disabled={picked.length === 0}
-        onClick={() => onDone(picked)}
-      >
-        Let's go →
-      </button>
     </div>
   )
 }

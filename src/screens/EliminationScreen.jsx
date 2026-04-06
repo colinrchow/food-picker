@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react'
 import { getDishPool } from '../data/dishes'
 
-export default function EliminationScreen({ cuisine, vibes, onDone, onBack }) {
-  const [remaining, setRemaining] = useState(() => getDishPool(cuisine, vibes))
+export default function EliminationScreen({ cuisine, weight, onDone, onBack }) {
+  const [remaining, setRemaining] = useState(() => getDishPool(cuisine, weight))
   const initialCount = useRef(remaining.length)
 
   const a = remaining[0]
