@@ -1,4 +1,5 @@
 // weight: light, medium, heavy
+import { shuffle } from '../utils/shuffle'
 
 const dishes = {
   japanese: [
@@ -94,13 +95,4 @@ export function getDishPool(cuisine, weight) {
   const matched = all.filter(d => d.weight.includes(weight))
   const pool = matched.length >= MIN_POOL_SIZE ? matched : all
   return shuffle(pool).slice(0, 8)
-}
-
-function shuffle(arr) {
-  const a = [...arr]
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]]
-  }
-  return a
 }

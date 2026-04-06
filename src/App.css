@@ -33,12 +33,6 @@ h1 {
   line-height: 1.1;
 }
 
-.subtitle {
-  color: #666;
-  font-size: 1rem;
-  margin-top: -12px;
-}
-
 .weight-options {
   display: flex;
   flex-direction: column;

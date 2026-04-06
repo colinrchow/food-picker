@@ -21,7 +21,7 @@ function App() {
     setScreen('elimination')
   }
 
-  function handleElimDone(winner) {
+  function handleDishDone(winner) {
     setSelected(s => ({ ...s, winner }))
     setScreen('result')
   }
@@ -46,7 +46,7 @@ function App() {
         <EliminationScreen
           cuisine={selected.cuisine}
           weight={selected.weight}
-          onDone={handleElimDone}
+          onDone={handleDishDone}
           onBack={() => setScreen('cuisine')}
         />
       )}
